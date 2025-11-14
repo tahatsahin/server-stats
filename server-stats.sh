@@ -4,6 +4,7 @@
 #script: github.com/tahatsahin/server-stats
 
 while :; do
+	# ============ CPU STATS ===========
 	# Get the first line of /proc/stats
 	cpu_now=($(head -n1 /proc/stat))
 	# Get all columns, skip first
@@ -22,7 +23,14 @@ while :; do
 	cpu_last=("${cpu_now[@]}")
 	cpu_last_sum=$cpu_sum
 
+
+	# ============ MEMORY STATS ===========
+	# get current memory usages via ps ax, filter for memory column
+	# use awk to sum all usages
+	mem_sum=$(ps ax -o %mem= | awk '{s+=$1} END {print s}')
+
 	clear
+	echo "Memory usage at $mem_sum%"
 	echo "CPU usage at $cpu_usage%"
 	sleep 1
 done
