@@ -15,3 +15,8 @@ to run the script:
 ```bash
 ./server-stats.sh
 ```
+
+end the script with using 
+```bash
+Ctrl+C
+```
