@@ -29,8 +29,14 @@ while :; do
 	# use awk to sum all usages
 	mem_sum=$(ps ax -o %mem= | awk '{s+=$1} END {print s}')
 
+
+	# ============ DISK USAGE ===========
+	# get total disk usage using df
+	total_info=($(df -hl --total | tail -n 1))
+
 	clear
 	echo "Memory usage at $mem_sum%"
 	echo "CPU usage at $cpu_usage%"
+	echo "Total disk space: ${total_info[1]}, Used Disk: ${total_info[2]}, Available Space: ${total_info[3]}"
 	sleep 1
 done
