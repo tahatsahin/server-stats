@@ -20,3 +20,5 @@ end the script with using
 ```bash
 Ctrl+C
 ```
+
+Project URL: https://roadmap.sh/projects/server-stats
