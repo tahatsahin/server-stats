@@ -38,5 +38,12 @@ while :; do
 	echo "Memory usage at $mem_sum%"
 	echo "CPU usage at $cpu_usage%"
 	echo "Total disk space: ${total_info[1]}, Used Disk: ${total_info[2]}, Available Space: ${total_info[3]}"
+	echo "=============================================="
+	echo "Top 5 CPU Using Processes"
+	ps aux --sort -pcpu | head -n 6
+
+	echo "=============================================="
+	echo "Top 5 Memory Using Processes"
+	ps aux --sort -pmem | head -n 6
 	sleep 1
 done
